@@ -132,6 +132,8 @@ final class StickyHeaderPositioner {
         this.orientation = orientation;
         // Don't reset/detach if same header position is to be attached
         if (getHeaderPositionToShow(firstVisiblePosition, null) == lastBoundPosition) {
+            // This line fixes issue https://github.com/bgogetap/StickyHeaders/issues/49
+            updateCurrentHeader = true;
             return;
         }
         if (fallbackReset) {
